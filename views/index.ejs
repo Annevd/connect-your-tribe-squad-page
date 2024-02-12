@@ -1,10 +1,17 @@
 <%- include('./partials/head') %>
 
-<h2>Students</h2>
+<h2>Squad D</h2>
+
+<form>
+
+</form>
+
 <ul>
   <% persons.forEach(person => { %>
-    <li><a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.squad_id %></li>
-  <% }) %>
+    <li>
+      <% person.avatar %>
+      <a href="./person/<%= person.id %>"><%= person.name %></a>
+    </li> <% }) %>
 </ul>
 
 <%- include('./partials/foot') %>
