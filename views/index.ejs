@@ -26,27 +26,27 @@
   <div class="container-overlay"></div>
     <div class="column-container">
       <%
-      const endOfFirstColumn = Math.ceil(persons.length / 3);
-      const endOfSecondColumn = Math.ceil(persons.length * 2/3);
-      const endOfThirdColumn = persons.length;
+      const endOfFirstColumn = Math.ceil(persons.length / 3); <!-- Dit berekent alle squadleden gedeeld door 3, om zo het einde van de eerste kolom te achterhalen -->
+      const endOfSecondColumn = Math.ceil(persons.length * 2/3); <!-- Dit achterhaalt het einde van de tweede kolom -->
+      const endOfThirdColumn = persons.length; <!-- Het einde van de derde kolom is de volledige lengte van de array -->
       %>
 
       <ul class="column column-reverse">
-        <% for(var i=0; i < endOfFirstColumn; i++) { %>
+        <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
           <li>
             <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
       <% } %>
       </ul>
 
       <ul class="column">
-        <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %>
+        <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %> <!-- zolang i (in dit geval het einde van de eerste kolom) kleiner is dan de lengte van de tweede kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
           <li>
             <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
       <% } %>
       </ul>
 
       <ul class="column column-reverse">
-        <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %>
+        <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %> <!-- zolang i (in dit geval het einde van de tweede kolom) kleiner is dan de lengte van de derde kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
           <li>
             <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
       <% } %>
