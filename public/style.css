@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Faster+One&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    background: #1C2C54;
+}
+
+header {
+    /* margin-bottom: 10rem; */
+    height: 30vh;
+    text-align:  center;
+    color: white;
+    background: linear-gradient(184deg, #1C2C54 0%, rgba(0,0,0,1) 100%);
+}
+
+h1 {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 4rem;
+}
+
+h2 {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.container-wrapper {
+    position: relative;
+}
+
+.container-overlay {
+	background-image:linear-gradient(black, transparent);
+	height:8em;
+	
+	position:sticky;
+	top:0;
+	z-index:10;
+}
+
+.column-container {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-gap: 3rem;
+    margin-top: -8em;
+    width: 100%;
+    padding-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+    background: white;
+    height: 25rem;
+    /* margin: 40px; */
+    border-radius: 1rem;
+}
+
+.column {
+    grid-row-start:1;
+	width:min(25vw, 20em);
+    display: grid;
+    /* flex-direction: column; */
+    grid-gap: 3rem;
+    padding: 10vh 0;
+}
+
+ul:nth-of-type(1) {
+	justify-self:end;
+	grid-column-start:1;
+}
+
+ul:nth-of-type(2)  {
+	grid-column-start:2;
+}
+
+ul:nth-of-type(3) {
+	grid-column-start:3;
+}
+
+@keyframes adjust-position {
+0% {
+    transform: translateY(calc(-110% + 100vh));
+}
+100% {
+    transform: translateY(calc(100% - 100vh));
+}
+}
+
+@supports (animation-timeline: scroll()) {
+.columns {
+    overflow-y: hidden;
+}
+}
+
+@supports (animation-timeline: scroll()) {
+.column-reverse {
+    animation: adjust-position linear forwards;
+    animation-timeline: scroll(root block);
+}
+}
+
+@supports (animation-timeline: scroll()) {
+.column-reverse {
+    flex-direction: column-reverse;
+}
+}

@@ -1,17 +1,43 @@
 <%- include('./partials/head') %>
 
 <h2>Squad D</h2>
+</header>
+
+<main>
 
 <form>
 
 </form>
 
-<ul>
-  <% persons.forEach(person => { %>
-    <li>
-      <% person.avatar %>
-      <a href="./person/<%= person.id %>"><%= person.name %></a>
-    </li> <% }) %>
-</ul>
+<div class="container-wrapper">
+  <div class="container-overlay"></div>
+    <div class="column-container">
+      <%
+      const endOfFirstColumn = Math.ceil(persons.length / 3);
+      const endOfSecondColumn = Math.ceil(persons.length * 2/3);
+      const endOfThirdColumn = persons.length;
+      %>
+
+      <ul class="column column-reverse">
+        <% for(var i=0; i < endOfFirstColumn; i++) { %>
+          <li><%- persons[i].squad_id %> <%- persons[i].name %></li>
+      <% } %>
+      </ul>
+
+      <ul class="column">
+        <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %>
+          <li><%- persons[i].squad_id %> <%- persons[i].name %></li>
+      <% } %>
+      </ul>
+
+      <ul class="column column-reverse">
+        <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %>
+          <li><%- persons[i].squad_id %> <%- persons[i].name %></li>
+      <% } %>
+      </ul>
+  </div>
+</div>
+
+</main>
 
 <%- include('./partials/foot') %>
