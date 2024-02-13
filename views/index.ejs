@@ -5,9 +5,22 @@
 
 <main>
 
-<form>
+<label for="sort">Sorteren op</label>
+<select name="sort" id="sort">
+  <option value="a-z">A-Z</option>
+  <option value="z-a">Z-A</option>
+  <option value="id">ID</option>
+  <option value="age">leeftijd</option>
+</select>
 
-</form>
+<label for="filter">Filteren op</label>
+<select name="filter" id="filter">
+  <optgroup label="haarkleur">
+    <option value="red">rood</option>
+    <option value="brown">bruin</option>
+    <option value="blonde">blond</option>
+  </optgroup>
+</select>
 
 <div class="container-wrapper">
   <div class="container-overlay"></div>
@@ -20,19 +33,22 @@
 
       <ul class="column column-reverse">
         <% for(var i=0; i < endOfFirstColumn; i++) { %>
-          <li><%- persons[i].squad_id %> <%- persons[i].name %></li>
+          <li>
+            <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
       <% } %>
       </ul>
 
       <ul class="column">
         <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %>
-          <li><%- persons[i].squad_id %> <%- persons[i].name %></li>
+          <li>
+            <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
       <% } %>
       </ul>
 
       <ul class="column column-reverse">
         <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %>
-          <li><%- persons[i].squad_id %> <%- persons[i].name %></li>
+          <li>
+            <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
       <% } %>
       </ul>
   </div>
