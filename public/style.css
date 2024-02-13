@@ -57,7 +57,7 @@ h2 {
     /* margin-top: -8em; */
     margin: -8rem 2rem 2rem 2rem;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 li {
