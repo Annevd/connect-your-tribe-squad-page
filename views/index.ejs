@@ -5,22 +5,24 @@
 
 <main>
 
-<label for="sort">Sorteren op</label>
-<select name="sort" id="sort">
-  <option value="a-z">A-Z</option>
-  <option value="z-a">Z-A</option>
-  <option value="id">ID</option>
-  <option value="age">leeftijd</option>
-</select>
+<div class="sort-container">
+  <label for="sort">Sorteren op</label>
+  <select class="sort" name="sort" id="sort">
+    <option value="a-z">a-z</option>
+    <option value="z-a">z-a</option>
+    <option value="id">Id</option>
+    <option value="age">leeftijd</option>
+  </select>
 
-<label for="filter">Filteren op</label>
-<select name="filter" id="filter">
-  <optgroup label="haarkleur">
-    <option value="red">rood</option>
-    <option value="brown">bruin</option>
-    <option value="blonde">blond</option>
-  </optgroup>
-</select>
+  <label for="filter">Filteren op</label>
+  <select class="filter" name="filter" id="filter">
+    <optgroup label="haarkleur">
+      <option value="red">rood</option>
+      <option value="brown">bruin</option>
+      <option value="blonde">blond</option>
+    </optgroup>
+  </select>
+</div>
 
 <div class="container-wrapper">
   <div class="container-overlay"></div>
@@ -34,21 +36,35 @@
       <ul class="column column-reverse">
         <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
           <li>
-            <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
+            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
+            <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+            <p class="nickname"><%- persons[i].nickname %></p>
+          </li>
       <% } %>
       </ul>
 
       <ul class="column">
         <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %> <!-- zolang i (in dit geval het einde van de eerste kolom) kleiner is dan de lengte van de tweede kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
           <li>
-            <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
+            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar" alt="avatar">
+            <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+            <p class="nickname"><%- persons[i].nickname %></p>
+          </li>
       <% } %>
       </ul>
 
       <ul class="column column-reverse">
+        <li>
+          <img class="person-avatar" src="images/IMG_0615.jpg" alt="avatar">
+          <p class="name">Hampter</p>
+          <p class="nickname">Placeholder</p>
+        </li>
         <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %> <!-- zolang i (in dit geval het einde van de tweede kolom) kleiner is dan de lengte van de derde kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
           <li>
-            <img class="person-avatar" src="<%- persons[i].avatar %>" alt="avatar"> <p><%- persons[i].name %></p></li>
+            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar"> 
+            <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+            <p class="nickname"><%- persons[i].nickname %></p>
+          </li>
       <% } %>
       </ul>
   </div>
