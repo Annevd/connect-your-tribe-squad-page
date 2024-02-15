@@ -1,6 +1,7 @@
 <%- include('./partials/head') %>
 
 <h2>Squad D</h2>
+<button class="start-game">Start game</button>
 </header>
 
 <main>
@@ -35,21 +36,27 @@
 
       <ul class="column column-reverse">
         <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
+        <a href="./person/<%= persons[i].id %>">  
           <li>
             <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
             <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
             <p class="nickname"><%- persons[i].nickname %></p>
+            <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
           </li>
+        </a>
       <% } %>
       </ul>
 
       <ul class="column">
         <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %> <!-- zolang i (in dit geval het einde van de eerste kolom) kleiner is dan de lengte van de tweede kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
+        <a href="./person/<%= persons[i].id %>">  
           <li>
-            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar" alt="avatar">
+            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
             <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
             <p class="nickname"><%- persons[i].nickname %></p>
+            <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
           </li>
+        </a>
       <% } %>
       </ul>
 
@@ -58,13 +65,17 @@
           <img class="person-avatar" src="images/IMG_0615.jpg" alt="avatar">
           <p class="name">Hampter</p>
           <p class="nickname">Placeholder</p>
+          <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
         </li>
         <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %> <!-- zolang i (in dit geval het einde van de tweede kolom) kleiner is dan de lengte van de derde kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
+        <a href="./person/<%= persons[i].id %>">
           <li>
             <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar"> 
             <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
             <p class="nickname"><%- persons[i].nickname %></p>
+            <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
           </li>
+        </a>
       <% } %>
       </ul>
   </div>

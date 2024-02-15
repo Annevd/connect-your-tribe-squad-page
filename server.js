@@ -1,3 +1,5 @@
+// 1. Opzetten van de webserver
+
 // Importeer het npm pakket express uit de node_modules map
 import express from 'express'
 
@@ -22,15 +24,22 @@ app.set('views', './views')
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
 app.use(express.static('public'))
 
+// 2. Routes die HTTP Request and Responses afhandelen
+
 // Maak een GET route voor de index
+// Stap 1
 app.get('/', function (request, response) {
+  // Stap 2
   // Haal alle personen uit de WHOIS API op
-  fetchJson(apiUrl + '/person/?filter={"squad_id":3}').then((apiData) => {
+  fetchJson(apiUrl + '/person/?filter={"squad_id":3}').then((persons) => {
     // apiData bevat gegevens van alle personen uit alle squads
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
-
+    // Stap 3
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
-    response.render('index', {persons: apiData.data, squads: squadData.data})
+
+    // Stap 4
+    // HTML maken op basis van JSON data
+    response.render('index', {persons: persons.data, squads: squadData.data})
   })
 })
 
@@ -48,6 +57,25 @@ app.get('/person/:id', function (request, response) {
     response.render('person', {person: apiData.data, squads: squadData.data})
   })
 })
+
+// Maak een GET route voor de find/filter dingen
+
+app.get('/filter/:q', function (request, response) {
+
+  /*
+  https://fdnd.directus.app/items/person/?filter={"name":"Koop"}
+  https://fdnd.directus.app/items/person/?filter={"name":{"_contains":"oo"}}
+  https://fdnd.directus.app/items/person/?filter={"name":{"_eq":"oo"}}
+  https://fdnd.directus.app/items/person/?filter={"bio":{"_icontains":"frontend"}}
+  */
+
+  fetchJson(apiUrl + '/person/' + request.params.q).then((apiData) => {
+      // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
+      response.render('filter', {persons: apiData.data, squads: squadData.data})
+  })
+})
+
+// 3. Start de webserver
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)

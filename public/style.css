@@ -5,14 +5,32 @@
     margin: 0;
 }
 
+/* ----------- Custom properties ----------- */
+:root {
+    /* --- Glitch colors --- */
+    --glitch-1: cyan;
+    --glitch-2: #ff3b90;
+    --glitch-3: yellow;
+    --glitch-4: black;
+
+    /* --- Font ---*/
+    --primary-font: "Silkscreen", sans-serif;
+    --secundary-font: "VT323", monospace;
+    --tertiary-font: "DotGothic16", sans-serif;
+
+    /* --- White space --- */
+    --white-space-1: 1rem;
+}
+
 body {
     background: #1C2C54;
+    font-family: var(--primary-font);
 }
 
 /* ----------- Header ----------- */
 
 header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     text-align:  center;
     color: white;
     word-wrap: break-word;
@@ -21,25 +39,40 @@ header {
 
 
 h1 {
-    font-family: "Silkscreen", sans-serif;
     font-size: 2.5rem;
-    text-shadow: cyan -1px -2px,
-    #ff3b90 2px -2px,
-    yellow 1px 1px,
-    white 0px 2px;
+    text-shadow: var(--glitch-1) -1px -2px,
+    var(--glitch-2) 2px -2px,
+    var(--glitch-3) 1px 2px,
+    var(--glitch-4) 0px 5px;
+    margin-bottom: var(--white-space-1);
 }
 
 h2 {
-    font-family: "Silkscreen", sans-serif;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     text-shadow: black -2px 3px;
+    margin-bottom: var(--white-space-1);
+}
+
+.start-game {
+    font-family: var(--primary-font);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background: none;
+    border: none;
+    text-shadow: var(--glitch-1) -1px -1px,
+    var(--glitch-2) 1px -2px,
+    var(--glitch-3) 1px 1px,
+    var(--glitch-4) 0px 4px;
+    animation: bounce .6s ease infinite alternate;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
 }
 
 label {
-    /* margin-right: 1rem; */
-    font-family: "Silkscreen", sans-serif;
+    /* font-family: var(--primary-font); */
     font-weight: 400;
     font-size: 1rem;
     color: white;
@@ -60,7 +93,7 @@ select {
 
 .sort {
     /* margin-right: 3rem; */
-    margin-bottom: 1rem;
+    margin-bottom: var(--white-space-1);
 }
 
 /* ----------- List container ----------- */
@@ -99,6 +132,11 @@ select {
 
 /* ----------- Card styling ----------- */
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 li {
     display: flex;
     flex-direction: column;
@@ -106,11 +144,15 @@ li {
     align-items: center;
     list-style: none;
     background: #c1e3dd;
-    height: 25rem;
+    height: 30rem;
     min-width: 16rem;
     max-width: 20rem;
     border-radius: 1rem;
     transition: 0.1s ease-in-out;
+    box-shadow: 5px 0px 0px 0px var(--glitch-1), 
+    8px 0px 0px 0px var(--glitch-2), 
+    4px 3px 0px 0px var(--glitch-3), 
+    10px 5px 0px 0px var(--glitch-4)
 }
 
 .person-avatar {
@@ -118,29 +160,79 @@ li {
     width: 7rem;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 1rem;
+    margin-bottom: var(--white-space-1);
 }
 
 .name {
-    font-family: "VT323", monospace;
+    font-family: var(--secundary-font);
     font-size: 2rem;
-    text-shadow: cyan -1px -2px,
-    #ff3b90 2px -2px,
-    yellow 1px 1px,
-    white 0px 2px;
+    color: black;
+    text-shadow: var(--glitch-1) -1px -1px,
+    var(--glitch-2) 1px -1px,
+    var(--glitch-3) 1px 1px,
+    var(--glitch-4) 0px 1px;
 }
 
 .nickname {
-    font-family: "Silkscreen", sans-serif;
+    /* font-family: var(--primary-font); */
     font-weight: 400;
     font-size: 1rem;
+    color: black;
+    margin-bottom: 2rem;
+}
+
+.laptop {
+    height: 4rem;
+    width: 4rem;
+    z-index: 1000;
+    /* transform: perspective(5em) rotateY(-30deg); */
+}
+
+/* ----------- Detail page ----------- */
+
+.back {
+    font-family: var(--secundary-font);
+    font-weight: 400;
+    font-size: 2rem;
+    color: white;
+    text-shadow: black -2px 3px;
+    margin-bottom: var(--white-space-1);
+}
+
+.person-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 83vh;
+}
+
+.bio {
+    font-family: var(--tertiary-font);
+    font-weight: 400;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.detail-card {
+    height: auto;
+    padding: 3rem 2rem;
 }
 
 /* ----------- Hovers ----------- */
 
 li:hover {
     transform: scale(105%);
-    animation: glitch 0.3s infinite;
+    /* animation: glitch 0.3s infinite; */
+}
+
+.start-game:active {
+    transform: translateY(10px);
+    animation:none;
+}
+
+.laptop:hover {
+    animation: rotate .2s linear infinite alternate;
 }
 
 /* ----------- Keyframe animations ----------- */
@@ -152,6 +244,15 @@ li:hover {
 100% {
     transform: translateY(calc(100% - 100vh));
 }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
 }
 
 @keyframes glitch {
@@ -175,23 +276,42 @@ li:hover {
     }
 }   
 
+@keyframes bounce {
+    100% {
+      transform:translateY(-10px);
+    }
+}
+
 /* ----------- Media queries ----------- */
 
 @media (min-width: 540px){
     h1 {
-        font-family: "Silkscreen", sans-serif;
+        /* font-family: var(--primary-font); */
         font-size: 4rem;
-        text-shadow: cyan -2px -3px,
-        #ff3b90 3px -3px,
-        yellow 2px 3px,
-        black 0px 7px;
+        text-shadow: var(--glitch-1) -2px -3px,
+        var(--glitch-2) 3px -3px,
+        var(--glitch-3) 2px 3px,
+        var(--glitch-4) 0px 7px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .start-game {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-shadow: var(--glitch-1) -1px -2px,
+        var(--glitch-2) 2px -2px,
+        var(--glitch-3) 1px 2px,
+        var(--glitch-4) 0px 6px;
     }
 }
 
 @media (min-width: 900px) {
 
     label {
-        margin-right: 1rem;
+        margin-right: var(--white-space-1);
     }
     
     .sort-container {
@@ -201,7 +321,7 @@ li:hover {
     }
     
     .sort {
-        margin-right: 3rem;
+        margin-right: 5rem;
     }
 
     li {
@@ -228,7 +348,7 @@ li:hover {
     }
 
     .column-reverse {
-        margin-top: -13rem;
+        margin-top: -17rem;
     }
 
     ul:nth-of-type(1) {

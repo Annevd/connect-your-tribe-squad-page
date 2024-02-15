@@ -1,9 +1,17 @@
 <%- include('./partials/head') %>
 
-<a href="/">Back</a>
+<a class ="back" href="/">Back</a>
 
-<h2><%= person.name %></h2>
+</header>
 
-<p>Squad: <%= person.squad_id %>
+<div class="person-container">
+    <li class="detail-card">
+        <img class="person-avatar" src="<%- person.avatar %> <%= (person.avatar == '') ? '/images/fallback.png' : person.avatar %>" onerror="this.src='/images/fallback.png'" alt="avatar">
+        <p class="name"><%- person.name %> <%- person.prefix %> <%- person.surname %></p>
+        <p class="nickname"><%- person.nickname %></p>
+        <p class="bio"><%- person.bio %></p>
+        <a href="<%- person.website %>"><img class="laptop" src="/assets/laptop-svgrepo-com.svg"></a>
+    </li>
+</div>
 
 <%- include('./partials/foot') %>
