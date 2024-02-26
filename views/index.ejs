@@ -37,7 +37,7 @@
       <ul class="column column-reverse">
         <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
         <a href="./person/<%= persons[i].id %>">  
-          <li>
+          <li class="card">
             <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
             <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
             <p class="nickname"><%- persons[i].nickname %></p>
@@ -50,7 +50,7 @@
       <ul class="column">
         <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %> <!-- zolang i (in dit geval het einde van de eerste kolom) kleiner is dan de lengte van de tweede kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
         <a href="./person/<%= persons[i].id %>">  
-          <li>
+          <li class="card">
             <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
             <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
             <p class="nickname"><%- persons[i].nickname %></p>
@@ -61,7 +61,7 @@
       </ul>
 
       <ul class="column column-reverse">
-        <li>
+        <li class="card">
           <img class="person-avatar" src="images/IMG_0615.jpg" alt="avatar">
           <p class="name">Hampter</p>
           <p class="nickname">Placeholder</p>
@@ -69,7 +69,7 @@
         </li>
         <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %> <!-- zolang i (in dit geval het einde van de tweede kolom) kleiner is dan de lengte van de derde kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
         <a href="./person/<%= persons[i].id %>">
-          <li>
+          <li class="card">
             <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar"> 
             <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
             <p class="nickname"><%- persons[i].nickname %></p>

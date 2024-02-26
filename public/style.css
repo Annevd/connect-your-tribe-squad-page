@@ -13,13 +13,40 @@
     --glitch-3: yellow;
     --glitch-4: black;
 
-    /* --- Font ---*/
+    /* --- Font --- */
     --primary-font: "Silkscreen", sans-serif;
     --secundary-font: "VT323", monospace;
     --tertiary-font: "DotGothic16", sans-serif;
 
     /* --- White space --- */
     --white-space-1: 1rem;
+
+    /* --- Text bubble border --- */
+    --bubble-border: 0 -4px white, 
+		0 -8px black, 
+		4px 0 white, 
+		4px -4px black, 
+		8px 0 black, 
+		0 4px white, 
+		0 8px black, 
+		-4px 0 white, 
+		-4px  4px black, 
+		-8px 0 black, 
+		-4px -4px black, 
+		4px 4px black;
+
+    --bubble-border-2: 0 -4px #c1e3dd, 
+    0 -8px black, 
+    4px 0 #c1e3dd, 
+    4px -4px black, 
+    8px 0 black, 
+    0 4px #c1e3dd, 
+    0 8px black, 
+    -4px 0 #c1e3dd, 
+    -4px  4px black, 
+    -8px 0 black, 
+    -4px -4px black, 
+    4px 4px black;
 }
 
 body {
@@ -137,7 +164,7 @@ a {
     color: black;
 }
 
-li {
+.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -217,13 +244,129 @@ li {
 .detail-card {
     height: auto;
     padding: 3rem 2rem;
+    min-width: 16rem;
+}
+
+/* ----------- Messages ----------- */
+
+.messages-container {
+    display: flex;
+    flex-direction: column; 
+    /* align-items: flex-end; */
+    margin: 0 auto;
+    padding: 1.5rem;
+    /* width: 40%; */
+}
+
+ .details-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.message {
+    list-style: none;
+    text-align: start;
+}
+
+.text-bubble {
+    position: relative;
+    display: block;
+    margin: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 16px;
+    line-height:1.3em;
+    background-color: white;
+    color: black;
+    padding: 12px;
+    box-shadow: var(--bubble-border);
+        
+    box-sizing: border-box;
+    width: fit-content;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;	
+    }
+
+    &.right::after {
+		height: 4px;
+		width: 4px;
+		top: 84px;
+		right: -8px;
+		background: white;
+		box-shadow: 
+			4px -4px white,
+			4px 0 white,
+			8px 0 white,
+			0 -8px white,
+			4px 4px black, 
+			8px 4px black, 
+			12px 4px black, 
+			16px 4px black,
+			12px 0 black, 
+			8px -4px black, 
+			4px -8px black,
+			0 -4px white;
+	}
+
+    &.left::after {
+
+        height: 4px;
+		width: 4px;
+		top: 20px;
+		left: -8px;
+		background: white;
+		box-shadow: 
+			-4px -4px white,
+			-4px 0 white,
+			-8px 0 white,
+			0 -8px white,
+			-4px 4px black, 
+			-8px 4px black, 
+			-12px 4px black, 
+			-16px 4px black,
+			-12px 0 black, 
+			-8px -4px black, 
+			-4px -8px black,
+			0 -4px white;
+    }
+}
+
+textarea.input {
+    border: none;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    /* width: max-content; */
+}
+
+.submit-button {
+    margin-right: 1rem;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    appearance: none;
+    background: #c1e3dd;
+    box-shadow: var(--bubble-border-2);
+    font-family: var(--primary-font);
+    cursor: pointer;
 }
 
 /* ----------- Hovers ----------- */
 
-li:hover {
+.card:hover {
     transform: scale(105%);
     /* animation: glitch 0.3s infinite; */
+}
+
+.detail-card:hover {
+    transform: none;
 }
 
 .start-game:active {
@@ -306,6 +449,20 @@ li:hover {
         var(--glitch-3) 1px 2px,
         var(--glitch-4) 0px 6px;
     }
+
+    .comment-form label {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 750px){
+    .messages-container {
+        width: 40vw;
+    }
+
+    textarea.input {
+        width: 20vw;
+    }
 }
 
 @media (min-width: 900px) {
@@ -324,7 +481,7 @@ li:hover {
         margin-right: 5rem;
     }
 
-    li {
+    .card {
         height: 25rem;
         width: auto;
     }
@@ -382,4 +539,10 @@ li:hover {
         flex-direction: column-reverse;
         }
     }
+}
+
+@media (prefers-reduced-motion) {
+    .start-game {
+        animation: none;
+    }   
 }

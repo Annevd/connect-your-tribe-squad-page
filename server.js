@@ -23,8 +23,11 @@ app.set('views', './views')
 
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }));
 
 // 2. Routes die HTTP Request and Responses afhandelen
+
+const messages = []
 
 // Maak een GET route voor de index
 // Stap 1
@@ -44,9 +47,10 @@ app.get('/', function (request, response) {
 })
 
 // Maak een POST route voor de index
-app.post('/', function (request, response) {
+app.post('/person/:id', function (request, response) {
   // Er is nog geen afhandeling van POST, redirect naar GET op /
-  response.redirect(303, '/')
+  messages.push(request.body.bericht)
+  response.redirect(303, '/person/'+ request.params.id)
 })
 
 // Maak een GET route voor een detailpagina met een request parameter id
@@ -54,7 +58,7 @@ app.get('/person/:id', function (request, response) {
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
   fetchJson(apiUrl + '/person/' + request.params.id).then((apiData) => {
     // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
-    response.render('person', {person: apiData.data, squads: squadData.data})
+    response.render('person', {person: apiData.data, squads: squadData.data, messages: messages})
   })
 })
 

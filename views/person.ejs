@@ -5,13 +5,30 @@
 </header>
 
 <div class="person-container">
-    <li class="detail-card">
+    <li class="card detail-card">
         <img class="person-avatar" src="<%- person.avatar %> <%= (person.avatar == '') ? '/images/fallback.png' : person.avatar %>" onerror="this.src='/images/fallback.png'" alt="avatar">
         <p class="name"><%- person.name %> <%- person.prefix %> <%- person.surname %></p>
         <p class="nickname"><%- person.nickname %></p>
         <p class="bio"><%- person.bio %></p>
         <a href="<%- person.website %>"><img class="laptop" src="/assets/laptop-svgrepo-com.svg"></a>
     </li>
+</div>
+
+<h2 class="details-subtitle">Eerdere berichten:</h2>
+
+<div class="messages-container">
+
+<ul>
+    <% messages.forEach(message => { %>
+    <li class="message text-bubble left"><%- message %></li>
+<% }) %>
+</ul>
+
+<form class="comment-form" method="POST" action="/person/<%- person.id %>">
+    <label for="bericht">Laat een bericht achter!</label>
+        <textarea class="text-bubble right input" required name="bericht"></textarea>
+    <button class="submit-button" type="submit">Verstuur</button>
+</form>
 </div>
 
 <%- include('./partials/foot') %>
