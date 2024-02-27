@@ -14,7 +14,7 @@
     </li>
 </div>
 
-<h2 class="details-subtitle">Eerdere berichten:</h2>
+<h2 class="details-subtitle">Berichten:</h2>
 
 <div class="messages-container">
 
@@ -27,7 +27,7 @@
 <form class="comment-form" method="POST" action="/person/<%- person.id %>">
     <label for="bericht">Laat een bericht achter!</label>
         <textarea class="text-bubble right input" required name="bericht"></textarea>
-    <button class="submit-button" type="submit">Verstuur</button>
+    <button name="verstuur" class="submit-button" type="submit">Verstuur</button>
 </form>
 </div>
 

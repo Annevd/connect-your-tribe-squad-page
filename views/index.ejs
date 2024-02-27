@@ -1,12 +1,12 @@
 <%- include('./partials/head') %>
 
 <h2>Squad D</h2>
-<button class="start-game">Start game</button>
+<a href="/app" class="start-game">Start game</a>
 </header>
 
 <main>
 
-<div class="sort-container">
+<form class="sort-container">
   <label for="sort">Sorteren op</label>
   <select class="sort" name="sort" id="sort">
     <option value="a-z">a-z</option>
@@ -23,7 +23,7 @@
       <option value="blonde">blond</option>
     </optgroup>
   </select>
-</div>
+</form>
 
 <div class="container-wrapper">
   <div class="container-overlay"></div>

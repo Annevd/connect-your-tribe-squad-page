@@ -83,6 +83,7 @@ h2 {
 }
 
 .start-game {
+    display: inline-block;
     font-family: var(--primary-font);
     font-size: 1.5rem;
     font-weight: bold;
@@ -223,14 +224,15 @@ a {
     font-size: 2rem;
     color: white;
     text-shadow: black -2px 3px;
-    margin-bottom: var(--white-space-1);
+    /* margin: var(--white-space-1); */
 }
 
 .person-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 83vh;
+    margin: 8rem 0;
+    /* height: 100%; */
 }
 
 .bio {
@@ -486,12 +488,16 @@ textarea.input {
         width: auto;
     }
 
+    .detail-card {
+        height: auto;
+    }
+
     .column-container {
         display: grid;
         grid-template-columns: 1fr max-content 1fr;
         grid-gap: 3rem;
         margin: 0;
-        margin-top: -8em;
+        margin-top: -7.5em;
         width: 100%;
         position: relative;
         overflow: hidden;

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Faster+One&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* ----------- Custom properties ----------- */
+:root {
+    /* --- Glitch colors --- */
+    --glitch-1: cyan;
+    --glitch-2: #ff3b90;
+    --glitch-3: yellow;
+    --glitch-4: black;
+
+    /* --- Font --- */
+    --primary-font: "Silkscreen", sans-serif;
+    --secundary-font: "VT323", monospace;
+    --tertiary-font: "DotGothic16", sans-serif;
+
+    /* --- White space --- */
+    --white-space-1: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #1C2C54;
+}
+
+a {
+    display: flex;
+    font-family: var(--secundary-font);
+    font-weight: 400;
+    font-size: 2rem;
+    color: white;
+    text-shadow: black -2px 3px;
+    margin: var(--white-space-1);
+    text-decoration: none;
+    text-align: left;
+}
+
+h1 {
+    font-family: var(--primary-font);
+    font-size: 3.5rem;
+    text-shadow: var(--glitch-1) -1px -2px,
+    var(--glitch-2) 2px -2px,
+    var(--glitch-3) 1px 2px,
+    var(--glitch-4) 0px 5px;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+h2 {
+    font-family: var(--secundary-font);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: black -2px 3px;
+    color: white;
+}
+
+p {
+    margin-bottom: var(--white-space-1);
+    font-family: var(--secundary-font);
+    font-size: 1.5rem;
+    text-shadow: black -2px 3px;
+    color: white;
+}
+
+.grid {
+    width: 600px;
+    height: 600px;
+    border: dashed 1px white;
+    display: flex;
+    /*zorgt ervoor dat alle items het element opvullen indien geen ruimte gaan ze op de volgende line*/
+    flex-wrap: wrap;
+    margin-bottom: var(--white-space-1);
+}
+
+.grid div {
+    width: 40px;
+    height: 40px;
+}
+
+.invader {
+    background-color: purple;
+    border-radius: 10px;
+}
+
+.shooter {
+    background-color: #c1e3dd;
+}
+
+.laser {
+    background-color: red;
+}
+
+.boom {
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
