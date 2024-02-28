@@ -30,28 +30,15 @@
 <article class="persons-card-messages right">
     <button id="personsCardMessagesClose">❌Sluit</button>
     <h2>berichten</h2>
-    <ul>
-        <% person.custom.messages.forEach(message => { %>
+    <% if (person.custom.messages && person.custom.messages.length) { %>
+        <ul>
+          <% person.custom.messages.forEach(message => { %>
             <li><%= message %></li>
-        <% }) %>
-    </ul> 
+          <% }) %>
+          </ul>
+      <% } else { %>
+        <p>Er zijn nog geen berichten.</p>
+      <% } %> 
 </article>
-
-<!-- <h2 class="details-subtitle">Berichten:</h2> -->
-
-<!-- <div class="messages-container">
-
-<ul>
-    <% messages.forEach(message => { %>
-    <li class="message text-bubble left"><%- message %></li>
-<% }) %>
-</ul>
-
-<form class="comment-form" method="POST" action="/person/<%- person.id %>">
-    <label for="bericht">Laat een bericht achter!</label>
-        <textarea class="text-bubble right input" required name="bericht"></textarea>
-    <button name="verstuur" class="submit-button" type="submit">Verstuur</button>
-</form>
-</div> -->
 
 <%- include('./partials/foot') %>

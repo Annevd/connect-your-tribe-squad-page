@@ -262,7 +262,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px;
+    padding: 2rem;
 
     &::after {
         content: '';
@@ -294,8 +294,8 @@ a {
 }
 
 #personsCardMessagesDeactivate {
-    margin: 0;
-    text-align: left;
+    /* margin: 0;
+    text-align: left; */
 }
 
 .persons-card img {
