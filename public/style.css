@@ -36,17 +36,56 @@
 		4px 4px black;
 
     --bubble-border-2: 0 -4px #c1e3dd, 
-    0 -8px black, 
-    4px 0 #c1e3dd, 
-    4px -4px black, 
-    8px 0 black, 
-    0 4px #c1e3dd, 
-    0 8px black, 
-    -4px 0 #c1e3dd, 
-    -4px  4px black, 
-    -8px 0 black, 
-    -4px -4px black, 
-    4px 4px black;
+        0 -8px black, 
+        4px 0 #c1e3dd, 
+        4px -4px black, 
+        8px 0 black, 
+        0 4px #c1e3dd, 
+        0 8px black, 
+        -4px 0 #c1e3dd, 
+        -4px  4px black, 
+        -8px 0 black, 
+        -4px -4px black, 
+        4px 4px black;
+    
+    --bubble-border-3: 0 -4px #1C2C54, 
+        0 -8px black, 
+        4px 0 #1C2C54, 
+        4px -4px black, 
+        8px 0 black, 
+        0 4px #1C2C54, 
+        0 8px black, 
+        -4px 0 #1C2C54, 
+        -4px  4px black, 
+        -8px 0 black, 
+        -4px -4px black, 
+        4px 4px black;
+
+    --bubble-border-4: 0 -4px cyan, 
+        0 -8px black, 
+        4px 0 cyan, 
+        4px -4px black, 
+        8px 0 black, 
+        0 4px cyan, 
+        0 8px black, 
+        -4px 0 cyan, 
+        -4px  4px black, 
+        -8px 0 black, 
+        -4px -4px black, 
+        4px 4px black;
+
+     --bubble-border-5: 0 -4px #ff3b90, 
+        0 -8px black, 
+        4px 0 #ff3b90, 
+        4px -4px black, 
+        8px 0 black, 
+        0 4px #ff3b90, 
+        0 8px black, 
+        -4px 0 #ff3b90, 
+        -4px  4px black, 
+        -8px 0 black, 
+        -4px -4px black, 
+        4px 4px black;
 }
 
 body {
@@ -231,7 +270,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 8rem 0;
+    margin: 4rem 0;
     /* position: absolute; */
     /* height: 100%; */
 }
@@ -242,6 +281,10 @@ a {
     font-size: 1.1rem;
     text-align: center;
     margin-bottom: 2rem;
+}
+
+.laptop {
+    margin-bottom: 1.5rem;
 }
 
 .detail-card {
@@ -293,36 +336,25 @@ a {
 	}
 }
 
-#personsCardMessagesDeactivate {
-    /* margin: 0;
-    text-align: left; */
-}
-
-.persons-card img {
-    max-width: 35em;
-}
-
 .persons-card-messages-active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     list-style-type: none;
     animation: pop-up ease-in 0.6s;
 }
 
-
 .persons-card-check-messages {
     display: none;
     background: #FFFFFF;
-    /* border-radius: 10px; */
     height: fit-content; /* zorgt ervoor dat de hoogte gelijk is aan de content aangezien deze dynamisch is */
     box-shadow: var(--bubble-border-2);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 2rem;
+    padding: 1rem;
 
     &::after {
         content: '';
@@ -331,25 +363,26 @@ a {
         box-sizing: border-box;
     }
 
-    &.right::after {
+    &.left::after {
+
         height: 4px;
-        width: 4px;
-        top: 84px;
-        right: -8px;
-        background: white;
-        box-shadow:
-                4px -4px white,
-                4px 0 white,
-                8px 0 white,
-                0 -8px white,
-                4px 4px black,
-                8px 4px black,
-                12px 4px black,
-                16px 4px black,
-                12px 0 black,
-                8px -4px black,
-                4px -8px black,
-                0 -4px white;
+		width: 4px;
+		top: 20px;
+		left: -8px;
+		background: white;
+		box-shadow: 
+			-4px -4px white,
+			-4px 0 white,
+			-8px 0 white,
+			0 -8px white,
+			-4px 4px black, 
+			-8px 4px black, 
+			-12px 4px black, 
+			-16px 4px black,
+			-12px 0 black, 
+			-8px -4px black, 
+			-4px -8px black,
+			0 -4px white;
     }
 }
 
@@ -360,24 +393,74 @@ a {
     align-items: center;
     list-style-type: none;
     animation: pop-up ease-in 0.6s;
-
 }
 
-@keyframes pop-up {
-    0% {
-        scale: 0;
-    }
-
-    75% {
-        scale: 1.20;
-    }
-
-    100% {
-        scale: 1;
-    }
-
+.persons-card-check-messages li {
+    margin-left: var(--white-space-1);
 }
 
+.message-button {
+    appearance: none;
+    border: none;
+    margin: 0.75rem 0;
+    padding: 0.25rem 0.5rem;
+    font-family: var(--primary-font);
+    cursor: pointer;
+}
+
+.message-button:first-of-type {
+    background: var(--glitch-1);
+    box-shadow: var(--bubble-border-4);
+}
+
+.message-button:nth-of-type(2) {
+    background: var(--glitch-2);
+    box-shadow: var(--bubble-border-5);
+}
+
+.messages {
+    color: black;
+    text-shadow: #d5d5d5 -2px 3px;
+    font-size: 1.5rem;
+    margin: 0 2rem 0 0;
+}
+
+.close-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.close {
+    appearance: none;
+    border: none;
+    background: #1C2C54;
+    box-shadow: var(--bubble-border-3);
+    font-family: var(--primary-font);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    margin-bottom: var(--white-space-1);
+    text-align: left;
+}
+
+.submit-button {
+    /* padding: 0.25rem 0.25rem; */
+    border: none;
+    appearance: none;
+    background: #c1e3dd;
+    box-shadow: var(--bubble-border-2);
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    cursor: pointer;
+}
 
 /* ----------- Messages ----------- */
 
