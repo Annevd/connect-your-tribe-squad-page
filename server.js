@@ -72,7 +72,7 @@ app.get('/person/:id', function (request, response) {
     response.render('person', {
       person: apiData.data,
       squads: squadData.data,
-      messages: messages})
+      messages: })
   })
 })
 
