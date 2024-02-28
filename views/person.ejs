@@ -11,26 +11,29 @@
         <p class="nickname"><%- person.nickname %></p>
         <p class="bio"><%- person.bio %></p>
         <a href="<%- person.website %>"><img class="laptop" src="/assets/laptop-svgrepo-com.svg"></a>
-        <button id="personsCardMessagesActivate">Verstuur een bericht</button>
-        <button id="personsCardSeeMessages">Zie eerdere berichten</button>
+        <button class="message-button" id="personsCardSeeMessages">Zie eerdere berichten</button>
+        <button class="message-button" id="personsCardMessagesActivate">Verstuur een bericht!</button>
     </li>
 </div>
 
 <article class="persons-card-messages right">
-    <button id="personsCardMessagesDeactivate">❌Sluit</button>
+    <div class="close-container">
+        <button class="close" id="personsCardMessagesDeactivate">❌Sluit</button>
+        <label class="messages" for="bericht">Stuur een bericht naar <%- person.name %>!</label>
+    </div>
     <form method="POST" action="/person/<%- person.id %>">
-        <label>verstuur een bericht</label>
             <textarea required name="bericht"></textarea>
 
-        <button  name="actie" value="verstuur" type="submit">Verzend</button>
+        <button class="submit-button" name="actie" value="verstuur" type="submit">Verzend</button>
     </form>
-    
 </article>
 
 
-<article class="persons-card-check-messages">
-    <button id="personsCardMessagesClose">❌Sluit</button>
-    <h2>berichten</h2>
+<article class="persons-card-check-messages left">
+    <div class="close-container">
+        <button class="close" id="personsCardMessagesClose">❌Sluit</button>
+        <h2 class="messages">berichten</h2>
+    </div>
     <% if (person.custom.messages && person.custom.messages.length) { %>
         <ul>
           <% person.custom.messages.forEach(message => { %>
