@@ -66,7 +66,9 @@ app.get('/person/:id', function (request, response) {
     // naar een Object, zodat we er mee kunnen werken
     try {
       apiData.data.custom = JSON.parse(apiData.data.custom)
-    } catch (e) {}
+    } catch (error) {
+      apiResponse.data.custom = {}
+    }
 
     // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
     response.render('person', {
@@ -83,7 +85,7 @@ app.post('/person/:id', function(request, response) {
   // Stap 1: Haal de huidige data op, zodat we altijd up-to-date zijn, en niks weggooien van anderen
 
   // Haal eerst de huidige gegevens voor deze persoon op, uit de WHOIS API
-  fetchJson(apiUrl + request.params.id).then((apiResponse) => {
+  fetchJson(apiUrl + '/person/' + request.params.id).then((apiResponse) => {
 
     // Het custom field is een String, dus die moeten we eerst
     // omzetten (= parsen) naar een Object, zodat we er mee kunnen werken
@@ -106,7 +108,8 @@ app.post('/person/:id', function(request, response) {
       }
 
       // Voeg een nieuwe message toe voor deze persoon, aan de hand van het bericht uit het formulier
-      apiResponse.data.custom.messages.push(request.body.message)
+      apiResponse.data.custom.messages.push(request.body.bericht)
+
     }
 
 
@@ -117,14 +120,14 @@ app.post('/person/:id', function(request, response) {
     fetch(apiUrl + '/person/' + request.params.id, {
       method: 'PATCH',
       body: JSON.stringify({
-        custom: apiResponse.data.custom
+        custom: apiResponse.data.custom,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8'
       }
     }).then((patchResponse) => {
       // Redirect naar de persoon pagina
-      response.redirect(303, '/person/:id' + request.params.id)
+      response.redirect(303, '/person/' + request.params.id)
     })
   })
 })
