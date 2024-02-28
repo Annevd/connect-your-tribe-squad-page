@@ -16,23 +16,22 @@
     </li>
 </div>
 
-<article class="persons-card-messages">
+<article class="persons-card-messages right">
     <button id="personsCardMessagesDeactivate">❌Sluit</button>
-
-    <form method="POST" action="/person/:id">
+    <form method="POST" action="/person/<%- person.id %>">
         <label>verstuur een bericht</label>
             <textarea required name="bericht"></textarea>
 
-        <button type="submit">Verzend</button>
+        <button  name="actie" value="verstuur" type="submit">Verzend</button>
     </form>
     
 </article>
 
-<article class="persons-card-messages">
+<article class="persons-card-messages right">
     <button id="personsCardMessagesClose">❌Sluit</button>
     <h2>berichten</h2>
     <ul>
-        <% messages.forEach(message => { %>
+        <% person.custom.messages.forEach(message => { %>
             <li><%= message %></li>
         <% }) %>
     </ul> 
