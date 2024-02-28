@@ -315,14 +315,42 @@ a {
 .persons-card-check-messages {
     display: none;
     background: #FFFFFF;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     height: fit-content; /* zorgt ervoor dat de hoogte gelijk is aan de content aangezien deze dynamisch is */
-    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: var(--bubble-border-2);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px;
+    padding: 2rem;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+    }
+
+    &.right::after {
+        height: 4px;
+        width: 4px;
+        top: 84px;
+        right: -8px;
+        background: white;
+        box-shadow:
+                4px -4px white,
+                4px 0 white,
+                8px 0 white,
+                0 -8px white,
+                4px 4px black,
+                8px 4px black,
+                12px 4px black,
+                16px 4px black,
+                12px 0 black,
+                8px -4px black,
+                4px -8px black,
+                0 -4px white;
+    }
 }
 
 .persons-card-check-messages-active {
