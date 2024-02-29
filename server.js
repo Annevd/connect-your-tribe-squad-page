@@ -57,6 +57,21 @@ app.get('/', function (request, response) {
   })
 })
 
+app.post('/', function (request, response) {
+  fetchJson(apiUrl + '/person/?filter={"squad_id":3}&sort=' + request.body.sort).then((persons) => {
+    // apiData bevat gegevens van alle personen uit alle squads
+    // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
+    // Stap 3
+    // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
+
+    // Stap 4
+    // HTML maken op basis van JSON data
+    response.render('index', {
+      persons: persons.data,
+      squads: squadData.data})
+  })
+})
+
 // Maak een GET route voor een detailpagina met een request parameter id
 app.get('/person/:id', function (request, response) {
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op

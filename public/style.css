@@ -100,7 +100,6 @@ header {
     text-align:  center;
     color: white;
     word-wrap: break-word;
-    /* background: linear-gradient(184deg, #1C2C54 0%, rgba(0,0,0,1) 100%); */
 }
 
 
@@ -139,15 +138,16 @@ h1 {
 }
 
 label {
-    /* font-family: var(--primary-font); */
     font-weight: 400;
     font-size: 1rem;
     color: white;
     text-shadow: black -1px 2px;
+    margin-bottom: var(--white-space-1);
 }
 
 select {
     border-radius: 5px;
+    font-family: var(--primary-font);
 }
 
 .sort-container {
@@ -159,8 +159,19 @@ select {
 }
 
 .sort {
-    /* margin-right: 3rem; */
     margin-bottom: var(--white-space-1);
+    box-shadow: var(--bubble-border-2);
+    border: none;
+    background: #c1e3dd;
+}
+
+.submit-button-sort {
+    border: none;
+    appearance: none;
+    background: #c1e3dd;
+    box-shadow: var(--bubble-border-2);
+    font-family: var(--primary-font);
+    cursor: pointer;
 }
 
 /* ----------- List container ----------- */
@@ -179,22 +190,16 @@ select {
 
 .column-container {
     display: grid;
-    /* display: flex;
-    flex-wrap: wrap;*/
     justify-content: center; 
-    /* grid-template-columns: repeat(auto-fit, minmax(16em, 1fr)); */
     grid-template-columns: max-content;
     grid-gap: 3rem;
-    /* margin-top: -8em; */
     margin: -8rem 2rem 2rem 2rem;
     position: relative;
-    /* overflow: hidden; */
 }
 
 .column {
     display: grid;
     grid-gap: 3rem;
-    /* padding-bottom: 10vh; */
 }
 
 /* ----------- Card styling ----------- */
@@ -251,7 +256,6 @@ a {
 }
 
 .nickname {
-    /* font-family: var(--primary-font); */
     font-weight: 400;
     font-size: 1rem;
     color: black;
@@ -262,7 +266,6 @@ a {
     height: 4rem;
     width: 4rem;
     z-index: 1000;
-    /* transform: perspective(5em) rotateY(-30deg); */
 }
 
 /* ----------- Detail page ----------- */
@@ -281,8 +284,6 @@ a {
     justify-content: center;
     align-items: center;
     margin: 4rem 0;
-    /* position: absolute; */
-    /* height: 100%; */
 }
 
 .bio {
@@ -308,7 +309,6 @@ a {
 .persons-card-messages {
     display: none;
     background: #FFFFFF;
-    /* border-radius: 10px; */
     height: fit-content; /* zorgt ervoor dat de hoogte gelijk is aan de content aangezien deze dynamisch is */
     box-shadow: var(--bubble-border-2);
     position: absolute;
@@ -350,7 +350,6 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     list-style-type: none;
     animation: pop-up ease-in 0.6s;
 }
@@ -570,7 +569,6 @@ textarea {
 
 @media (min-width: 540px){
     h1 {
-        /* font-family: var(--primary-font); */
         font-size: 4rem;
         text-shadow: var(--glitch-1) -2px -3px,
         var(--glitch-2) 3px -3px,
@@ -614,12 +612,11 @@ textarea {
     
     .sort-container {
         flex-direction: row;
-        margin-bottom: 3rem;
         align-items: baseline;
     }
-    
+
     .sort {
-        margin-right: 5rem;
+        margin-right: var(--white-space-1);
     }
 
     .card {

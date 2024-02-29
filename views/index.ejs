@@ -8,23 +8,14 @@
 
 <!-- Sorteren & filteren -->
 
-<form class="sort-container">
+<form  method="POST" action="" class="sort-container">
   <label for="sort">Sorteren op</label>
   <select class="sort" name="sort" id="sort">
-    <option value="a-z">a-z</option>
-    <option value="z-a">z-a</option>
+    <option value="name">a-z</option>
+    <option value="-name">z-a</option>
     <option value="id">Id</option>
-    <option value="age">leeftijd</option>
   </select>
-
-  <label for="filter">Filteren op</label>
-  <select class="filter" name="filter" id="filter">
-    <optgroup label="haarkleur">
-      <option value="red">rood</option>
-      <option value="brown">bruin</option>
-      <option value="blonde">blond</option>
-    </optgroup>
-  </select>
+  <button class="submit-button-sort" name="actie" value="verstuur" type="submit">kies</button>
 </form>
 
 <!-- Squadmembers -->
