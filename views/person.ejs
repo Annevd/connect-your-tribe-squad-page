@@ -4,6 +4,8 @@
 
 </header>
 
+<!-- Persoons kaartje -->
+
 <div class="person-container">
     <li class="card detail-card">
         <img class="person-avatar" src="<%- person.avatar %> <%= (person.avatar == '') ? '/images/fallback.png' : person.avatar %>" onerror="this.src='/images/fallback.png'" alt="avatar">
@@ -15,6 +17,8 @@
         <button class="message-button" id="personsCardMessagesActivate">Verstuur een bericht!</button>
     </li>
 </div>
+
+<!-- Verstuur bericht popup -->
 
 <article class="persons-card-messages right">
     <div class="close-container">
@@ -28,6 +32,7 @@
     </form>
 </article>
 
+<!-- Bekijk berichten popup -->
 
 <article class="persons-card-check-messages left">
     <div class="close-container">
