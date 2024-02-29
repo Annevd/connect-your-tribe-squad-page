@@ -1,81 +1,78 @@
 <%- include('./partials/head') %>
 
-<h2>Squad D</h2>
+<h2 class="squad">Squad D</h2>
 <a href="/app" class="start-game">Start game</a>
 </header>
 
 <main>
 
-<form class="sort-container">
+<!-- Sorteren & filteren -->
+
+<form  method="POST" action="" class="sort-container">
   <label for="sort">Sorteren op</label>
   <select class="sort" name="sort" id="sort">
-    <option value="a-z">a-z</option>
-    <option value="z-a">z-a</option>
+    <option value="name">a-z</option>
+    <option value="-name">z-a</option>
     <option value="id">Id</option>
-    <option value="age">leeftijd</option>
   </select>
-
-  <label for="filter">Filteren op</label>
-  <select class="filter" name="filter" id="filter">
-    <optgroup label="haarkleur">
-      <option value="red">rood</option>
-      <option value="brown">bruin</option>
-      <option value="blonde">blond</option>
-    </optgroup>
-  </select>
+  <button class="submit-button-sort" name="actie" value="verstuur" type="submit">kies</button>
 </form>
+
+<!-- Squadmembers -->
 
 <div class="container-wrapper">
   <div class="container-overlay"></div>
     <div class="column-container">
       <%
-      const endOfFirstColumn = Math.ceil(persons.length / 3); <!-- Dit berekent alle squadleden gedeeld door 3, om zo het einde van de eerste kolom te achterhalen -->
-      const endOfSecondColumn = Math.ceil(persons.length * 2/3); <!-- Dit achterhaalt het einde van de tweede kolom -->
-      const endOfThirdColumn = persons.length; <!-- Het einde van de derde kolom is de volledige lengte van de array -->
+      const endOfFirstColumn = Math.ceil(persons.length / 3); // Dit berekent alle squadleden gedeeld door 3, om zo het einde van de eerste kolom te achterhalen
+      const endOfSecondColumn = Math.ceil(persons.length * 2/3); // Dit achterhaalt het einde van de tweede kolom
+      const endOfThirdColumn = persons.length; // Het einde van de derde kolom is de volledige lengte van de array
       %>
 
+      <!-- Kolom 1 -->
+
       <ul class="column column-reverse">
-        <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
-        <a href="./person/<%= persons[i].id %>">  
+        <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->  
           <li class="card">
-            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
-            <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
-            <p class="nickname"><%- persons[i].nickname %></p>
-            <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
+            <a class="card-link" href="./person/<%= persons[i].id %>"> <!--D.m.v. persons[i].id link ik hier door naar hen detailpagina -->
+              <img class="person-avatar" src="<%- persons[i].avatar %><%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
+              <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+              <p class="nickname"><%- persons[i].nickname %></p>
+            </a>
           </li>
-        </a>
       <% } %>
       </ul>
+
+      <!-- Kolom 2 -->
 
       <ul class="column">
         <% for(var i = endOfFirstColumn; i < endOfSecondColumn; i++) { %> <!-- zolang i (in dit geval het einde van de eerste kolom) kleiner is dan de lengte van de tweede kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
-        <a href="./person/<%= persons[i].id %>">  
           <li class="card">
-            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
-            <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
-            <p class="nickname"><%- persons[i].nickname %></p>
-            <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
+            <a class="card-link" href="./person/<%= persons[i].id %>">
+              <img class="person-avatar" src="<%- persons[i].avatar %><%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
+              <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+              <p class="nickname"><%- persons[i].nickname %></p>
+            </a>
           </li>
-        </a>
       <% } %>
       </ul>
+
+      <!-- Kolom 3 -->
 
       <ul class="column column-reverse">
         <li class="card">
           <img class="person-avatar" src="images/IMG_0615.jpg" alt="avatar">
           <p class="name">Hampter</p>
           <p class="nickname">Placeholder</p>
-          <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
         </li>
         <% for(var i=endOfSecondColumn; i < endOfThirdColumn; i++) { %> <!-- zolang i (in dit geval het einde van de tweede kolom) kleiner is dan de lengte van de derde kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->
-        <a href="./person/<%= persons[i].id %>">
           <li class="card">
-            <img class="person-avatar" src="<%- persons[i].avatar %> <%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar"> 
-            <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
-            <p class="nickname"><%- persons[i].nickname %></p>
-            <!-- <img class="laptop" src="assets/laptop-svgrepo-com.svg"> -->
+            <a class="card-link" href="./person/<%= persons[i].id %>">
+              <img class="person-avatar" src="<%- persons[i].avatar %><%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar"> 
+              <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+              <p class="nickname"><%- persons[i].nickname %></p>
+            </a>
           </li>
-        </a>
       <% } %>
       </ul>
   </div>

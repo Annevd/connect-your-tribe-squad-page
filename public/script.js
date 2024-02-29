@@ -2,12 +2,10 @@
 const personsMessages = document.querySelector('.persons-card-messages');
 const persons = document.querySelector('.persons-card');
 let personsMessageCheck = false;
+
 // pop-up functie berichten bekijken
 const personMessagesCheck = document.querySelector('.persons-card-check-messages');
 let messagesCheck = false;
-
-
-
 
 // wanneer er op de knop berichten wordt geklikt
 document.getElementById('personsCardMessagesActivate').addEventListener('click', function() {
@@ -27,9 +25,6 @@ document.getElementById('personsCardMessagesDeactivate').addEventListener('click
     messageNonActive();
 });
 
-
-
-
 // wanneer er op de knop berichten wordt geklikt
 document.getElementById('personsCardSeeMessages').addEventListener('click', function() {
     if (personsMessageCheck === false) {
@@ -44,8 +39,6 @@ document.getElementById('personsCardMessagesClose').addEventListener('click', fu
     messageCheckNonActive();
 });
 
-
-
 // laat person message verschijnen op het beeld
 function messagesActive() {
     personsMessageCheck = true;
@@ -57,8 +50,6 @@ function messageNonActive() {
     personsMessageCheck = false;
     personsMessages.classList.remove('persons-card-messages-active');
 }
-
-
 
 // laat person message verschijnen op het beeld
 function messagesCheckActive() {
