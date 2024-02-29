@@ -34,7 +34,7 @@ Node maakt het mogelijk om server-side gebruik te maken van Javascript.
 Express is een webapplicatieframework voor Node.js. Het wordt vaak gebruikt in combinatie met Node voor het bouwen van webapplicaties en API's. 
 Door het gebruiken van Express in combinatie met Node kun je makkelijker routes definiëren en HTTP verzoeken afhandelen.
 
-EJS, ook wel Embedded Javascript, is een template-engine voor Node.js en JavaScript. EJS laat doe om direct in de HTML-bestanden stukjes Javascript te gebruiken zoals een loop om gegevens uit een database te tonen. 
+EJS, ook wel Embedded Javascript, is een template-engine voor Node.js en JavaScript. EJS laat toe om direct in de HTML-bestanden stukjes Javascript te gebruiken zoals een loop om gegevens uit een database te tonen. 
 EJS neemt deze code en maakt er uiteindelijk HTML van dat naar de browser wordt gestuurd, zodat gebruikers de webpagina kunnen zien zoals bedoeld.
 
 ## Installatie
