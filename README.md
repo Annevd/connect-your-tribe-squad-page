@@ -25,6 +25,7 @@ Daarnaast kan je een leuke game spelen waarin je strijdt tegen je medeklasgenote
 ![image](https://github.com/Annevd/connect-your-tribe-squad-page/assets/144004647/77c46de0-a170-4021-aaf3-9d820726209f)
 
 <!-- Voeg een link toe naar Github Pages 🌐-->
+Klik [hier](https://connect-your-tribe-squad-page-j6wz.onrender.com) om de squadpage zelf te bekijken!
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
