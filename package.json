@@ -1,32 +1,22 @@
 {
-  "name": "connect-your-tribe-squad-page",
-  "version": "1.0.0",
-  "description": "Redesign met je squad een squadpagina op basis van een bestaande API.",
-  "main": "server.js",
-  "type": "module",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fdnd-task/connect-your-tribe-squad-page.git"
-  },
-  "keywords": [
-    "node",
-    "express",
-    "ejs"
-  ],
-  "author": "J.P. Sturkenboom <j.p.sturkenboom@hva.nl>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fdnd-task/connect-your-tribe-squad-page/issues"
-  },
-  "homepage": "https://github.com/fdnd-task/connect-your-tribe-squad-page#readme",
-  "dependencies": {
-    "ejs": "^3.1.9",
-    "express": "^4.18.2"
-  }
+	"name": "naamloos",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"svelte": "^4.2.7",
+		"svelte-check": "^3.6.0",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.3"
+	},
+	"type": "module"
 }

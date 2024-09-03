@@ -1,8 +1,21 @@
-.DS_Store
-logs
-*.logs
-npm-debug.log*
 node_modules
-.npm
+
+# Output
+.output
+.vercel
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
 .env
-members/
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

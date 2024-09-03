@@ -1,59 +1,38 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
+# create-svelte
 
-# Connect Your Tribe - Squadpage
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
-Ontwerp en maak met een team een website voor je squad met Node en data uit de whois.fdnd.nl API.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Inhoudsopgave
+## Creating a project
 
-  * [Beschrijving](#beschrijving)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Gebruik](#gebruik)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Beschrijving
-<!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
-Op deze squadpage zijn alle squadleden van squad 1D te bekijken. Je kan op elk individueel kaartje klikken om meer informatie over deze persoon te lezen en om een bericht achter te laten!
-Daarnaast kan je een leuke game spelen waarin je strijdt tegen je medeklasgenoten zodra je op "Start Game" hebt geklikt.
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-<!-- Voeg een mooie poster visual toe 📸 -->
-### Homepage
-![image](https://github.com/Annevd/connect-your-tribe-squad-page/assets/144004647/34035a01-b7c1-4dfb-a51a-1e13f4b7a51d)
-### Game
-![image](https://github.com/Annevd/connect-your-tribe-squad-page/assets/144004647/77c46de0-a170-4021-aaf3-9d820726209f)
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-<!-- Voeg een link toe naar Github Pages 🌐-->
-Klik [hier](https://connect-your-tribe-squad-page-j6wz.onrender.com) om de squadpage zelf te bekijken!
+## Developing
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
-Voor deze website is gebruik gemaakt van Node, Express en EJS. 
-Node maakt het mogelijk om server-side gebruik te maken van Javascript. 
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Express is een webapplicatieframework voor Node.js. Het wordt vaak gebruikt in combinatie met Node voor het bouwen van webapplicaties en API's. 
-Door het gebruiken van Express in combinatie met Node kun je makkelijker routes definiëren en HTTP verzoeken afhandelen.
+```bash
+npm run dev
 
-EJS, ook wel Embedded Javascript, is een template-engine voor Node.js en JavaScript. EJS laat toe om direct in de HTML-bestanden stukjes Javascript te gebruiken zoals een loop om gegevens uit een database te tonen. 
-EJS neemt deze code en maakt er uiteindelijk HTML van dat naar de browser wordt gestuurd, zodat gebruikers de webpagina kunnen zien zoals bedoeld.
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-## Installatie
-<!-- Bij Installatie staat stap-voor-stap beschreven hoe je de development omgeving moet inrichten om aan de repository te kunnen werken. -->
-1. Fork deze repository
-2. Clone de repository op eigen apparaat
-3. Gebruik editor naar keuze
+## Building
 
-## Gebruik
-Om deze pagina te bekijken kan je klikken op de livelink in de About sectie van deze repository.
+To create a production version of your app:
 
-## Bronnen
+```bash
+npm run build
+```
 
-- [WHOIS API](https://whois.fdnd.nl/)
-- [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-- [EJS](https://ejs.co/)
-- [Cyclic Hosting](https://www.cyclic.sh/)
+You can preview the production build with `npm run preview`.
 
-## Licentie
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
