@@ -32,15 +32,17 @@
       <!-- Kolom 1 -->
 
       <ul class="column column-reverse">
-        <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->  
-          <li class="card">
-            <a class="card-link" href="./person/<%= persons[i].id %>"> <!--D.m.v. persons[i].id link ik hier door naar hen detailpagina -->
-              <img class="person-avatar" src="<%- persons[i].avatar %><%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
-              <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
-              <p class="nickname"><%- persons[i].nickname %></p>
-            </a>
-          </li>
-      <% } %>
+        <% if (persons && persons.length > 0) { %>
+          <% for(var i=0; i < endOfFirstColumn; i++) { %> <!-- zolang i kleiner is dan de lengte van de eerste kolom, voer deze code uit en tel er elke keer een i bij op. Zo komen er dus i aantal li's -->  
+            <li class="card">
+              <a class="card-link" href="./person/<%= persons[i].id %>"> <!--D.m.v. persons[i].id link ik hier door naar hen detailpagina -->
+                <img class="person-avatar" src="<%- persons[i].avatar %><%= (persons[i].avatar == '') ? 'images/fallback.png' : persons[i].avatar %>" onerror="this.src='images/fallback.png'" alt="avatar">
+                <p class="name"><%- persons[i].name %> <%- persons[i].prefix %> <%- persons[i].surname %></p>
+                <p class="nickname"><%- persons[i].nickname %></p>
+              </a>
+            </li>
+          <% } %>
+        <% } %>
       </ul>
 
       <!-- Kolom 2 -->
